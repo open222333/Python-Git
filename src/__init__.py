@@ -20,8 +20,10 @@ LOG_FILE_DISABLE = conf.getboolean('LOG', 'LOG_FILE_DISABLE', fallback=True)
 
 # 相關設定json檔路徑 預設 conf/repo.json
 JSON_PATH = conf.get('SETTING', 'JSON_PATH', fallback='conf/repo.json')
-with open(JSON_PATH) as file:
-    REPOS = json.load(file)
+REPOS = []
+if os.path.exists(JSON_PATH):
+    with open(JSON_PATH, 'r') as f:
+        REPOS = json.loads(f.read())
 
 # 建立log資料夾
 if not os.path.exists(LOG_PATH) and not LOG_DISABLE:

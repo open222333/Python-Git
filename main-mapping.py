@@ -1,13 +1,13 @@
-from src.git import Git
+from src.git_tool import Git
 from src.logger import Log
 from src import REPOS, LOG_LEVEL, LOG_FILE_DISABLE
+import os
 
 
 """
 遍歷出所有 檔案
 """
 
-import os
 logger = Log()
 logger.set_level(LOG_LEVEL)
 if not LOG_FILE_DISABLE:
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
         files = g.get_modified_files()
         output_dir = 'output'
-        
+
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 

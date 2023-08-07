@@ -1,9 +1,8 @@
-import os
-from src.git import Git
+from src.git_tool import Git
 from src.logger import Log
 from src import REPOS, LOG_LEVEL, LOG_FILE_DISABLE
-
 from argparse import ArgumentParser
+import os
 
 parser = ArgumentParser()
 parser.add_argument('-f', '--filename', help='要尋找的檔案名稱', required=True)
